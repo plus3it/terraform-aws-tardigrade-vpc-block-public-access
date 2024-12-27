@@ -1,5 +1,5 @@
-# repo-template
-Generic repo template for Plus3IT repositories
+# terraform-aws-tardigrade-vpc-block-public-access
+Terraform module to manage settings for AWS VPC Block Public Access
 
 To use this template:
 
