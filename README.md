@@ -1,52 +1,35 @@
-# repo-template
-Generic repo template for Plus3IT repositories
+# terraform-aws-tardigrade-vpc-block-public-access
+Terraform module to manage settings for AWS VPC Block Public Access
 
-To use this template:
+<!-- BEGIN TFDOCS -->
+## Requirements
 
-1. Select the green "Use this template" button, or [click here](https://github.com/plus3it/repo-template/generate).
-2. Select the repo Owner, give the repo a name, enter a description, select Public or Private, and click "Create repository from template".
-3. Clone the repository and create a new branch.
-4. Configure the following settings on your new repo.
-    * `GENERAL`
-        * `Features`
-            * Turn off Wikis, Sponsorships, Discussions, and Projects
-        * `Pull Requests`
-            * Turn off Squash Merging
-            * Turn off Rebase Merging
-            * Turn on Allow Auto-Merge
-            * Turn on Automatically delete head branches
-        * `Pushes`
-            * Limit how many branches can be updated in a single push: 2
-    * `COLLABORATORS and TEAMS`
-        * `Manage Access`
-            * Add relevant team roles, for example
-            * `tardigrade-admins` (Admin)
-            * `terraform` (Write)
-            * `releasebot` (Write)
-    * `Branches`
-        * `Create Branch Protection rule` for `main`
-            * Turn on Require pull request before merging
-            * Turn on Require approvals
-            * Turn on Dismiss stale pull requests...
-        * `Required Status Checks`
-            * As relevant to projects, for example
-                * WIP
-                * lint/actionlint
-                * lint/tardigradelint
-                * test / mockstacktest                
-            * Turn on Do not allow bypassing the above settings
-5. Edit the following files to customize them for the new repository:
-    * `LICENSE`
-        * Near the end of the file, edit the date and change the repository name
-    * `CHANGELOG.template.md`
-        * Rename to `CHANGELOG.md`, replacing the repo-template changelog
-        * Edit templated items for the new repo
-    * `.bumpversion.cfg`
-        * Edit the version number for the new repo, ask team if not sure what to
-          start with
-    * `README.md`
-        * Replace contents for the new repo
-    * `.github/`
-        * Inspect dependabot and workflow files in case changes are needed for
-          the new repo
-6. Commit the changes and open a pull request
+| Name | Version |
+|------|---------|
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 5.79.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 5.79.0 |
+
+## Resources
+
+| Name | Type |
+|------|------|
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_vpc_block_public_access"></a> [vpc\_block\_public\_access](#input\_vpc\_block\_public\_access) | VPC block public access settings | <pre>object({<br>    internet_gateway_block_mode = string<br><br>    exclusions = optional(list(object({<br>      name                            = string<br>      internet_gateway_exclusion_mode = string<br><br>      subnet_id = optional(string)<br>      vpc_id    = optional(string)<br>      tags      = optional(map(string), {})<br>    })), [])<br>  })</pre> | n/a | yes |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_exclusions"></a> [exclusions](#output\_exclusions) | Map of VPC block public access exclusion objects |
+| <a name="output_options"></a> [options](#output\_options) | VPC block public access options |
+
+<!-- END TFDOCS -->
