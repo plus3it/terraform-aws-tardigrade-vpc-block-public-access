@@ -23,7 +23,7 @@ Terraform module to manage settings for AWS VPC Block Public Access
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_vpc_block_public_access"></a> [vpc\_block\_public\_access](#input\_vpc\_block\_public\_access) | VPC block public access settings | <pre>object({<br>    internet_gateway_block_mode = string<br><br>    exclusions = optional(list(object({<br>      name                            = string<br>      internet_gateway_exclusion_mode = string<br><br>      subnet_id = optional(string)<br>      vpc_id    = optional(string)<br>      tags      = optional(map(string), {})<br>    })), [])<br>  })</pre> | n/a | yes |
+| <a name="input_vpc_block_public_access"></a> [vpc\_block\_public\_access](#input\_vpc\_block\_public\_access) | VPC block public access settings | <pre>object({<br/>    internet_gateway_block_mode = string<br/><br/>    exclusions = optional(list(object({<br/>      name                            = string<br/>      internet_gateway_exclusion_mode = string<br/><br/>      subnet_id = optional(string)<br/>      vpc_id    = optional(string)<br/>      tags      = optional(map(string), {})<br/>    })), [])<br/>  })</pre> | n/a | yes |
 
 ## Outputs
 
